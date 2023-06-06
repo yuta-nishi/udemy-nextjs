@@ -27,7 +27,7 @@ export const EventItem: React.FC<Props> = ({ id, title, location, date, image })
             <address>{formattedAddress}</address>
           </div>
         </div>
-        <div className={classes.action}>
+        <div className={classes.actions}>
           <Link href={exploreLink}>Explore Event</Link>
         </div>
       </div>
