@@ -1,17 +1,5 @@
-interface Event {
-  id: string;
-  title: string;
-  description: string;
-  location: string;
-  date: string;
-  image: string;
-  isFeatured: boolean;
-}
-
-interface DateFilter {
-  year: number;
-  month: number;
-}
+import { Date } from '@/types/date';
+import { Event } from '@/types/event';
 
 const DUMMY_EVENTS: Event[] = [
   {
@@ -54,7 +42,7 @@ export const getAllEvents = (): Event[] => {
   return DUMMY_EVENTS;
 };
 
-export const getFilteredEvents = (dateFilter: DateFilter): Event[] => {
+export const getFilteredEvents = (dateFilter: Date): Event[] => {
   const { year, month } = dateFilter;
 
   let filteredEvents = DUMMY_EVENTS.filter((event) => {

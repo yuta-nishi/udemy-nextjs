@@ -1,9 +1,14 @@
 import type { NextPage } from 'next';
 
+import { EventList } from '@/components/Events/EventList';
+import { getFeaturedEvents } from '@/dummy-data';
+
 const HomePage: NextPage = () => {
+  const featuredEvents = getFeaturedEvents();
+
   return (
     <div>
-      <h1>The Home Page</h1>
+      <EventList items={featuredEvents} />
     </div>
   );
 };
