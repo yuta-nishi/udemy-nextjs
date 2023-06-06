@@ -1,14 +1,23 @@
+import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
-const ClientProjectsPage = () => {
+const ClientProjectsPage: NextPage = () => {
   const router = useRouter();
 
   console.log(router.query);
 
+  const loadProjectHandler = () => {
+    // load data...
+    router.push({
+      pathname: '/clients/[id]/[clientprojectid]',
+      query: { id: 'max', clientprojectid: 'projecta' },
+    });
+  };
+
   return (
     <div>
       <h1>The Projects of a Given Client</h1>
-      <button>Load Project A</button>
+      <button onClick={loadProjectHandler}>Load Project A</button>
     </div>
   );
 };

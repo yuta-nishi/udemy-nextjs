@@ -1,4 +1,6 @@
-const AboutPage = () => {
+import type { NextPage } from 'next';
+
+const AboutPage: NextPage = () => {
   return (
     <div>
       <h1>The About Page</h1>

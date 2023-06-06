@@ -1,6 +1,7 @@
+import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
-const BlogPostsPage = () => {
+const BlogPostsPage: NextPage = () => {
   const router = useRouter();
 
   console.log(router.query);

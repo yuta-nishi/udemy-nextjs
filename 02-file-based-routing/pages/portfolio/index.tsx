@@ -1,4 +1,6 @@
-const PortfolioPage = () => {
+import type { NextPage } from 'next';
+
+const PortfolioPage: NextPage = () => {
   return (
     <div>
       <h1>The Portfolio Page</h1>
