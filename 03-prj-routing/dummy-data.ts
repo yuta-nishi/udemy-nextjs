@@ -53,6 +53,6 @@ export const getFilteredEvents = (dateFilter: Date): Event[] => {
   return filteredEvents;
 };
 
-export const getEventById = (id: string): Event | undefined => {
+export const getEventById = (id: string | string[] | undefined): Event | undefined => {
   return DUMMY_EVENTS.find((event) => event.id === id);
 };
