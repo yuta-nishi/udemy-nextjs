@@ -3,7 +3,7 @@ import Link from 'next/link';
 import classes from './Button.module.css';
 
 interface Props {
-  link: string | undefined;
+  link?: string;
   children: React.ReactNode;
 }
 
