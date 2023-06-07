@@ -1,13 +1,30 @@
-import { NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 
-const HomePage: NextPage = () => {
+interface Props {
+  products: [
+    {
+      id: string;
+      title: string;
+    }
+  ];
+}
+
+const HomePage: NextPage<Props> = ({ products }) => {
   return (
     <ul>
-      <li>Product 1</li>
-      <li>Product 2</li>
-      <li>Product 3</li>
+      {products.map((product) => (
+        <li key={product.id}>{product.title}</li>
+      ))}
     </ul>
   );
 };
 
 export default HomePage;
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  return {
+    props: {
+      products: [{ id: 'p1', title: 'Product 1' }],
+    },
+  };
+};
