@@ -1,4 +1,4 @@
-import { Date } from '@/types/date';
+import { DateFilter } from '@/types/date';
 import { Event } from '@/types/event';
 
 const DUMMY_EVENTS: Event[] = [
@@ -42,7 +42,7 @@ export const getAllEvents = (): Event[] => {
   return DUMMY_EVENTS;
 };
 
-export const getFilteredEvents = (dateFilter: Date): Event[] => {
+export const getFilteredEvents = (dateFilter: DateFilter): Event[] => {
   const { year, month } = dateFilter;
 
   let filteredEvents = DUMMY_EVENTS.filter((event) => {

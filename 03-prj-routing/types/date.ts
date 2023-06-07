@@ -1,4 +1,4 @@
-export interface Date {
+export interface DateFilter {
   year: number;
   month: number;
 }
