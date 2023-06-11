@@ -24,14 +24,27 @@ const HomePage: NextPage<Props> = ({ products }) => {
 export default HomePage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  console.log(process.cwd());
   const filePath = path.join(process.cwd(), 'data', 'dummy-backend.json');
   const jsonData = await fs.readFile(filePath);
-  const data: Props = JSON.parse(jsonData.toString());
+  const data = JSON.parse(jsonData.toString());
+
+  if (!data) {
+    return {
+      redirect: {
+        destination: '/no-data',
+        permanent: false,
+      },
+    };
+  }
+
+  if (data.products.length === 0) {
+    return { notFound: true };
+  }
 
   return {
     props: {
       products: data.products,
     },
+    revalidate: 10,
   };
 };
